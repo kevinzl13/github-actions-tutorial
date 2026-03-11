@@ -31,3 +31,8 @@ jobs:
                   echo "Platform: ${{env.platform}}"
                   echo "Region: ${{env.region}}"
                   echo "Account: ${{env.account}}"
+
+            - name: "Mostrar condicionales"
+              if: ${{env.platform == 'ubuntu'}}
+              run: |
+                  echo "Platforn: ${{env.platform}}"
