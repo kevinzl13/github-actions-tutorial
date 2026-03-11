@@ -1,50 +1,45 @@
 # Nombre del workflow
 name: CI
-
 # Evento que activa el workflow
 on:
-    # El workflow se ejecuta cuando haces push
-    push:
-        branches: ["main"]
-
+  # El workflow se ejecuta cuando haces push
+  push:
+    branches: ["main"]
 # Inicio de los trabajos
 jobs:
-    # Nombre del job en el workflow
-    build:
-        # variable de entorno
-        env:
-            platform: aws
-            region: US
-            account: 12345
-
-        # Sistema operativo donde se ejecuta
-        runs-on: ubuntu-latest
-
-        # Lista de pasos que se ejecutarán
-        steps:
-            # Nombre del paso
-            - name: "Mostrar mensaje"
-              # Comando que se ejecuta en la terminal
-              run: echo "Hola mundo"
-            - name: "Mostar varaible de entorno"
-              run: |
-                  echo "Platform: ${{env.platform}}"
-                  echo "Region: ${{env.region}}"
-                  echo "Account: ${{env.account}}"
-
-            - name: "Mostrar condicionales"
-              if: ${{env.platform == 'ubuntu'}}
-              run: |
-                  echo "Platforn: ${{env.platform}}"
-
-            - name: "Mostrar variables por defecto"
-              run: |
-                  echo "Evento ${{toJson(github.event_name)}}"
-
-            - name: "Mostrar variables por defecto"
-              run: |
-                  echo "Evento ${{toJson(github.event)}}"
-
-            - name: Mostart otro evento
-              run: |
-                  echo "Evento ${{github.event_path}}"  
+  # Nombre del job en el workflow
+  build:
+    # variable de entorno
+    env:
+      platform: aws
+      region: US
+      account: 12345
+    # Sistema operativo donde se ejecuta
+    runs-on: ubuntu-latest
+    # Lista de pasos que se ejecutarán
+    steps:
+      # Nombre del paso
+      - name: "Mostrar mensaje"
+        # Comando que se ejecuta en la terminal
+        run: echo "Hola mundo"
+      - name: "Mostar varaible de entorno"
+        run: |
+          echo "Platform: ${{env.platform}}"
+          echo "Region: ${{env.region}}"
+          echo "Account: ${{env.account}}"
+      - name: "Mostrar condicionales"
+        if: ${{env.platform == 'ubuntu'}}
+        run: |
+          echo "Platforn: ${{env.platform}}"
+      - name: "Mostrar variables por defecto"
+        run: |
+          echo "Evento ${{toJson(github.event_name)}}"
+      - name: "Mostrar variables por defecto"
+        run: |
+          echo "Evento ${{toJson(github.event)}}"
+      - name: Mostart otro evento
+        run: |
+          echo "Evento ${{github.event_path}}"
+      - name: "Actor"
+        run: |
+          echo "Nombre ${{github.actor}}"
