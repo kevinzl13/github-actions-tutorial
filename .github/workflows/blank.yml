@@ -37,10 +37,14 @@ jobs:
               run: |
                   echo "Platforn: ${{env.platform}}"
 
-            - name: "Mostrar varaibles por defecto"
+            - name: "Mostrar variables por defecto"
               run: |
                   echo "Evento ${{toJson(github.event_name)}}"
 
-            - name: "Mostrar varaibles por defecto"
+            - name: "Mostrar variables por defecto"
               run: |
                   echo "Evento ${{toJson(github.event)}}"
+
+            - name: Mostart otro evento
+              run: |
+                  echo "Evento ${{github.event_path}}"  
