@@ -7,13 +7,16 @@ on:
     push:
         branches: ["main"]
 
-    # Permite ejecutar el workflow manualmente desde la pestaña Actions del repositorio.
-    workflow_dispatch:
-
 # Inicio de los trabajos
 jobs:
     # Nombre del job en el workflow
     build:
+        # variable de entorno
+        env:
+            platform: aws
+            region: US
+            account: 12345
+
         # Sistema operativo donde se ejecuta
         runs-on: ubuntu-latest
 
@@ -23,3 +26,8 @@ jobs:
             - name: "Mostrar mensaje"
               # Comando que se ejecuta en la terminal
               run: echo "Hola mundo"
+            - name: "Mostar varaible de entorno"
+              run: |
+                  echo "Platform: ${{env.platform}}"
+                  echo "Region: ${{env.region}}"
+                  echo "Account: ${{env.account}}"
