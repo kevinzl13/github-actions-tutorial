@@ -1,36 +1,25 @@
-# This is a basic workflow to help you get started with Actions
-
+# Nombre del workflow
 name: CI
 
-# Controls when the workflow will run
+# Evento que activa el workflow
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    # El workflow se ejecuta cuando haces push
+    push:
+        branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    # Permite ejecutar el workflow manualmente desde la pestaña Actions del repositorio.
+    workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Inicio de los trabajos
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    # Nombre del job en el workflow
+    build:
+        # Sistema operativo donde se ejecuta
+        runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        # Lista de pasos que se ejecutarán
+        steps:
+            # Nombre del paso
+            - name: "Mostrar mensaje"
+              # Comando que se ejecuta en la terminal
+              run: echo "Hola mundo"
