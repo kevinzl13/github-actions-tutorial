@@ -36,3 +36,7 @@ jobs:
               if: ${{env.platform == 'ubuntu'}}
               run: |
                   echo "Platforn: ${{env.platform}}"
+
+            - name: "Mostrar varaibles por defecto"
+              run: |
+                  echo "Evento ${{toJson(github.event_name)}}"
