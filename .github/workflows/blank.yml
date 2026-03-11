@@ -40,3 +40,7 @@ jobs:
             - name: "Mostrar varaibles por defecto"
               run: |
                   echo "Evento ${{toJson(github.event_name)}}"
+
+            - name: "Mostrar varaibles por defecto"
+              run: |
+                  echo "Evento ${{toJson(github.event)}}"
